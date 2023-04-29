@@ -2,14 +2,8 @@
 {
     private static void Main(string[] args)
     {
-        IFactory<Board<PieceType>> boardFactory = new ChessBoardFactory();
-        Board<PieceType> board = boardFactory.Create();
-
-        ChessGameBuilder builder = new ChessGameBuilder();
-        ChessGame game = builder
-            .WithBoard(board)
-            .WithCurrentPlayer(PlayerType.White)
-            .Build();
+        IFactory<ChessGame> chessGameFactory = new ChessGameFactory();
+        var game = chessGameFactory.Create();
 
         while(true)
         {

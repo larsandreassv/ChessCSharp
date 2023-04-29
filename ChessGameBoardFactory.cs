@@ -24,6 +24,9 @@ public class ChessGameBoardFactory : IFactory<GameBoard<PlayerType, PieceType>>
     public GameBoard<PlayerType, PieceType> Create()
     {
         var board = chessBoardFactory.Create();
+        if(board == null) {
+            throw new InvalidOperationException("Board is not set");
+        }
         var gameBoard = new GameBoard<PlayerType, PieceType>(piecePlayerMap, board);
         return gameBoard;
     }

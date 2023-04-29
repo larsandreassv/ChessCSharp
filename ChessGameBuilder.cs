@@ -3,23 +3,17 @@ public class ChessGameBuilder {
     private PlayerType currentPlayer;
 
     public ChessGameBuilder() {
-        this.board = new GameBoard<PlayerType, PieceType>();
         var chessGameBoardFactory = new ChessGameBoardFactory();
         this.board = chessGameBoardFactory.Create();
     }
 
-    public ChessGameBuilder WithBoard(Board<PieceType> board) {
-        this.board.SetBoard(board);
-        return this;
-    }
-
-    public ChessGameBuilder WithBoard(string board) {
-        //TODO: Implement this
-        return this;
-    }
-
     public ChessGameBuilder WithCurrentPlayer(PlayerType currentPlayer) {
         this.currentPlayer = currentPlayer;
+        return this;
+    }
+
+    public ChessGameBuilder WithBoard(GameBoard<PlayerType, PieceType> board) {
+        this.board = board;
         return this;
     }
 

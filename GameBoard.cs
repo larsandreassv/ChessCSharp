@@ -3,11 +3,11 @@ where TPlayerType : Enum
 where TPieceType : Enum {
     private Dictionary<TPieceType, TPlayerType> playerPieceMap;
 
-    public GameBoard(Dictionary<TPieceType, TPlayerType> playerPieceMap, Board<TPieceType> board) : base(board) {
-        if(playerPieceMap == null) {
+    public GameBoard(Dictionary<TPieceType, TPlayerType> piecePlayerMap, Board<TPieceType> board) : base(board) {
+        if(piecePlayerMap == null) {
             throw new InvalidOperationException("Player piece map is not set");
         }
-        this.playerPieceMap = playerPieceMap;
+        this.playerPieceMap = piecePlayerMap;
     }
 
     public TPlayerType GetPlayerType(BoardPosition boardPosition) {
